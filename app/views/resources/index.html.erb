@@ -1,13 +1,3 @@
-<section class="jumbotron text-xs-center">
-  <div class="container">
-    <h1 class="jumbotron-heading logo">clli</h1>
-    <p class="lead text-muted">collective intelligence</p>
-    <%= simple_form_for Resource.new do |f| %>
-      <%= f.input :url, as: :string, label: false, placeholder: 'Paste URL here' %>
-      <%= f.button :submit, 'Add resource' %>
-    <% end %>
-  </div>
-</section>
 <div class="container-fluid">
   <div class="card-columns">
     <% @resources.each do |resource| %>
