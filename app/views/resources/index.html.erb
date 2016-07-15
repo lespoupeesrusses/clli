@@ -1,0 +1,35 @@
+<section class="jumbotron text-xs-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">CLLI</h1>
+    <p class="lead text-muted">Collective Intelligence</p>
+    <%= simple_form_for Resource.new do |f| %>
+      <%= f.input :url, as: :string, label: false, placeholder: 'Paste URL here' %>
+      <%= f.button :submit, 'Add resource' %>
+    <% end %>
+  </div>
+</section>
+<div class="container-fluid">
+  <div class="card-columns">
+    <% @resources.each do |resource| %>
+      <div class="card">
+        <%= link_to resource do %>
+          <div class="card-header">
+            Featured
+            <div class="pull-sm-right">
+            <small>Arnaud Levy, <%= resource.created_at.strftime("%d/%m/%Y") %></small>
+            </div>
+          </div>
+          <img class="card-img-top img-fluid" src="<%= resource.image %>">
+          <div class="card-block">
+            <h4 class="card-title"><%= resource.title %></h4>
+            <p class="card-text"><%= resource.abstract %></p>
+            <footer>
+              <small>
+                <%= link_to resource.url, resource.url, target: :blank %>
+              </small>
+            </footer>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,15 @@
+development:
+  adapter:  postgresql
+  database: clli
+  host:     localhost
+  username: postgres
+  pool:     5
+  timeout:  5000
+
+test:
+  adapter:  postgresql
+  database: clli_test
+  host:     localhost
+  username: postgres
+  pool:     5
+  timeout:  5000
