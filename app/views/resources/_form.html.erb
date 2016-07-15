@@ -1,32 +1,26 @@
-<%= form_for(resource) do |f| %>
-  <% if resource.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
-
-      <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+<%= simple_form_for resource do |f| %>
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.input :title %>
+      <%= f.input :abstract %>
+      <%= f.input :url %>
+      <%= f.input :image %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'Show', resource, class: 'btn btn-primary' %>
+      <%= f.submit 'Save', class: 'btn btn-primary' %>
+      <h4>Categories</h4>
+      <ul class="list-inline">
+        <% Category.all.each do |category| %>
+          <li class="list-inline-item">
+            <% if category.in? resource.categories %>
+              <%= button_to category.title, resource_uncategorize_path(resource, category), class: 'btn btn-sm btn-primary' %>
+            <% else %>
+              <%= button_to category.title, resource_categorize_path(resource, category), class: 'btn btn-sm btn-default' %>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :abstract %>
-    <%= f.text_area :abstract %>
-  </div>
-
-  <div class="field">
-    <%= f.label :url %>
-    <%= f.text_area :url %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

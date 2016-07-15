@@ -12,8 +12,16 @@
 #
 
 class Resource < ApplicationRecord
+  has_and_belongs_to_many :categories
 
   before_save :parse_data
+
+  scope :recent, -> { ordered.limit 5 }
+  scope :ordered, -> { order(created_at: :desc) }
+  
+  def to_s
+    "#{title}"
+  end
 
   protected
 

@@ -1,0 +1,26 @@
+<% @categories.each do |category| %>
+  <div class="card">
+    <div class="card-header">
+      <h2>
+        <%= link_to category.title, category %> 
+        <span class="label label-pill label-default"><%= category.resources.count %></span>
+      </h2> 
+    </div>
+    <div class="card-block">
+      <div class="card-deck-wrapper">
+        <div class="card-deck">
+          <% category.resources.recent.each do |resource| %>
+            <div class="card">
+              <%= link_to resource do %>
+                <img class="card-img-top img-fluid" src="<%= resource.image %>">
+                <div class="card-block"><%= resource %></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= link_to 'New Category', new_category_path, class: 'btn btn-primary' %>
+

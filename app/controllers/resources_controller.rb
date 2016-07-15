@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_action :set_resource, only: [:show, :edit, :update, :destroy]
+  before_action :set_resource
 
   def index
     @resources = Resource.all.order(created_at: :desc)
@@ -16,12 +16,30 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @resource = Resource.create resource_params
+    @resource = Resource.new resource_params
+    respond_to do |format|
+      if @resource.save
+        format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
+        format.json { render :show, status: :created, location: @resource }
+      else
+        format.html { render :new }
+        format.json { render json: @resource.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def categorize
+    @category = Category.find params[:category_id]
+    @resource.categories << @category unless @category.nil? or @category.in? @resource.categories
     redirect_to :back
   end
 
-  # PATCH/PUT /resources/1
-  # PATCH/PUT /resources/1.json
+  def uncategorize
+    @category = Category.find params[:category_id]
+    @resource.categories.delete @category unless @category.nil?
+    redirect_to :back
+  end
+
   def update
     respond_to do |format|
       if @resource.update(resource_params)
@@ -34,8 +52,6 @@ class ResourcesController < ApplicationController
     end
   end
 
-  # DELETE /resources/1
-  # DELETE /resources/1.json
   def destroy
     @resource.destroy
     respond_to do |format|
@@ -45,9 +61,9 @@ class ResourcesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_resource
-      @resource = Resource.find(params[:id])
+      @resource = Resource.find params[:id] if params.include? :id
+      @resource = Resource.find params[:resource_id] if params.include? :resource_id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

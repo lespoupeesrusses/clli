@@ -1,0 +1,23 @@
+<header class="text-xs-center">
+  <h1><%= @category.title %> </h1>
+  <p><%= link_to fa_icon(:pencil), edit_category_path(@category) %></p>
+</header>
+<div class="card-columns">
+  <% @category.resources.each do |resource| %>
+    <div class="card">
+      <%= link_to resource do %>
+        <img class="card-img-top img-fluid" src="<%= resource.image %>">
+        <div class="card-block">
+          <small><!--Arnaud Levy, --><%= resource.created_at.strftime("%d/%m/%Y") %></small>
+          <h4 class="card-title"><%= resource.title %></h4>
+          <p class="card-text"><%= resource.abstract %></p>
+          <footer>
+            <small>
+              <%= link_to resource.url, resource.url, target: :blank %>
+            </small>
+          </footer>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

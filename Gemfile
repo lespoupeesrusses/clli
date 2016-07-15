@@ -9,6 +9,7 @@ gem 'puma', '~> 3.0'
 gem 'simple_form'
 gem 'nokogiri'
 gem 'metainspector'
+gem 'devise'
 
 # Front
 gem 'sass-rails', '~> 5.0'
@@ -18,6 +19,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
