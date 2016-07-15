@@ -1,6 +1,7 @@
 <%= simple_form_for resource do |f| %>
   <div class="row">
     <div class="col-md-8">
+      <h1><%= resource %></h1>
       <%= f.input :title %>
       <%= f.input :abstract %>
       <%= f.input :url %>
@@ -14,9 +15,9 @@
         <% Category.all.each do |category| %>
           <li class="list-inline-item">
             <% if category.in? resource.categories %>
-              <%= button_to category.title, resource_uncategorize_path(resource, category), class: 'btn btn-sm btn-primary' %>
+              <%= link_to category.title, resource_uncategorize_path(resource, category), method: :post, class: 'btn btn-sm btn-info' %>
             <% else %>
-              <%= button_to category.title, resource_categorize_path(resource, category), class: 'btn btn-sm btn-default' %>
+              <%= link_to category.title, resource_categorize_path(resource, category), method: :post, class: 'btn btn-sm btn-secondary' %>
             <% end %>
           </li>
         <% end %>
