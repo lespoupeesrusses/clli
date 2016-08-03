@@ -1,3 +1,9 @@
+<% content_for :jumbo do %>
+  <%= simple_form_for Resource.new do |f| %>
+    <%= f.input :url, as: :string, label: false, placeholder: 'Paste URL here' %>
+    <%= f.button :submit, 'Add resource' %>
+  <% end %>
+<% end %>
 <% @categories.each do |category| %>
   <div class="card">
     <div class="card-header">

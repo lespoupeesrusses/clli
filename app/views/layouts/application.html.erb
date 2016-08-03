@@ -11,14 +11,14 @@
     <nav class="navbar navbar-static-top">
       <div class="container-fluid">
         <%= link_to 'clli', root_path, class: 'navbar-brand logo' %>
+        <ul class="nav navbar-nav pull-right">
+        <li class="nav-item"><a class="nav-link" href="#">Collective Intelligence</a></li>
+      </ul>
       </div>
     </nav>
     <section class="jumbotron text-xs-center">
       <div class="container">
-        <%= simple_form_for Resource.new do |f| %>
-          <%= f.input :url, as: :string, label: false, placeholder: 'Paste URL here' %>
-          <%= f.button :submit, 'Add resource' %>
-        <% end %>
+        <%= yield :jumbo %>
       </div>
     </section>
     <div class="container">
@@ -38,7 +38,10 @@
         <p class="pull-xs-right">
           <a href="#">Back to top</a>
         </p>
-        <p>&copy; Les Poupées Russes</p>
+        <p>
+          Outil d'intelligence collective open source par <a href="http://lespoupees.paris" target="_blank">Les Poupées Russes</a> / 
+          Code source sur <a href="https://github.com/semiodesign/clli" target="_blank">github.com/semiodesign/clli</a>
+        </p>
         </small>
       </div>
     </footer>

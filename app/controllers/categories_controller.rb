@@ -6,6 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @resource = Resource.new
+    @resource.categories << @category
   end
 
   def new
