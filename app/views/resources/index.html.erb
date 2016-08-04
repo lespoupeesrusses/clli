@@ -1,22 +1,5 @@
 <div class="card-columns">
   <% @resources.each do |resource| %>
-    <div class="card">
-      <%= link_to resource do %>
-        <img class="card-img-top img-fluid" src="<%= resource.image %>">
-        <div class="card-header">
-          Featured
-        </div>
-        <div class="card-block">
-          <small><!--Arnaud Levy, --><%= resource.created_at.strftime("%d/%m/%Y") %></small>
-          <h4 class="card-title"><%= resource.title %></h4>
-          <p class="card-text"><%= resource.abstract %></p>
-          <footer>
-            <small>
-              <%= link_to resource.url, resource.url, target: :blank %>
-            </small>
-          </footer>
-        </div>
-      <% end %>
-    </div>
+    <%= render 'card', resource: resource %>
   <% end %>
 </div>
