@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @resource = Resource.new
   end
 
   def show

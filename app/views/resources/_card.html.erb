@@ -1,0 +1,14 @@
+<section class="card resource">
+  <%= link_to resource do %>
+    <img class="card-img-top img-fluid" src="<%= resource.image %>">
+    <div class="card-block">
+      <h1 class="card-title"><%= resource.title %></h1>
+      <p class="card-text"><%= resource.abstract %></p>
+    </div>
+    <div class="card-footer">
+      <%= link_to fa_icon(:link), resource.url, target: :blank, class: 'pull-right' %>
+      <!--Arnaud Levy, -->
+      <%= fa_icon(:calendar) %> <%= resource.created_at.strftime("%d/%m/%Y") %>
+    </div>
+  <% end %>
+</section>

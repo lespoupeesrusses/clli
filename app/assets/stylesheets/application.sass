@@ -1,5 +1,4 @@
 @import 'bootstrap'
-@import 'resources'
 @import 'font-awesome'
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,700)
 
@@ -7,7 +6,7 @@
   font-family: 'Roboto', sans-serif
 
 .jumbotron 
-  background: image-url('background.jpg')
+  background: image-url('background.jpg') fixed
   margin-top: -60px
   padding-top: 150px
   input
@@ -18,11 +17,35 @@
 .logo
   font-weight: bold
 
+body
+  background: #f6f6f6
+
 nav
   background: none
+
+.card
+  border: none
+  &-footer
+    background: #fcfcfc
+  .card-title
+    font-size: 85%
+    line-height: 150%  
+  .card-footer
+    font-size: 70%
+  .card-text
+    font-size: 75%
+  &.new
+    opacity: 0.6
+
+.card-columns 
+  column-count: 6
+
+.mini-icon
+  font-size: 40%
 
 a
   color: black
 
-footer
+#footer
   margin-top: 100px
+  font-size: 70%

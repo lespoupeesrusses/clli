@@ -1,13 +1,21 @@
+<% content_for :title, @resource %>
+
+<% content_for :jumbo do %>
+  <h1>
+    <%= @resource.title %>
+    <%= link_to fa_icon(:pencil), edit_resource_path(@resource), class: 'mini-icon' %>
+  </h1>
+  <p><%= link_to @resource.url, @resource.url, target: :blank %></p>
+<% end %>
+
 <div class="row">
-  <div class="col-md-8">
-    <%= image_tag @resource.image, class: 'img-fluid' unless @resource.image.nil? %>
-    <h1><%= @resource.title %></h1>
-    <p><small><%= link_to @resource.url, @resource.url, target: :blank %></small></p>
+  <div class="col-md-4">
     <p><%= @resource.abstract %></p>
   </div>
   <div class="col-md-4">
-    <%= link_to 'Edit', edit_resource_path(@resource), class: 'btn btn-primary' %>
-    <h4>Categories</h4>
+    <%= image_tag @resource.image, class: 'img-fluid' unless @resource.image.nil? %>
+  </div>
+  <div class="col-md-4">
     <ul class="list-inline">
       <% @resource.categories.each do |category| %>
         <%= link_to category, category, class: 'btn btn-sm btn-info' %>

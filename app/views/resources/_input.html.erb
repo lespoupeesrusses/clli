@@ -1,0 +1,7 @@
+<%= simple_form_for resource do |f| %>
+  <%= f.association :categories, as: :hidden %>
+  <div class="form-inline">
+    <input type="text" class="form-control" name="resource[url]" id="resource_url" placeholder="Paste URL here">
+    <button type="submit" class="btn btn-primary">Add resource</button>
+  </div>
+<% end %>

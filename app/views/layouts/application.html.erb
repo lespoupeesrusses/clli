@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>clli</title>
+    <title><% if content_for?(:title) %><%= yield(:title) %> | <% end %>clli</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
       <div class="container-fluid">
         <%= link_to 'clli', root_path, class: 'navbar-brand logo' %>
         <ul class="nav navbar-nav pull-right">
-        <li class="nav-item"><a class="nav-link" href="#">Collective Intelligence</a></li>
+        <li class="nav-item small"><%= link_to 'collective intelligence system', root_path, class: 'nav-link' %></li>
       </ul>
       </div>
     </nav>
@@ -21,7 +21,7 @@
         <%= yield :jumbo %>
       </div>
     </section>
-    <div class="container">
+    <div class="container-fluid">
       <% unless notice.nil? %>
         <div class="alert alert-warning alert-dismissible fade in" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -31,19 +31,13 @@
         </div>
       <% end %>
       <%= yield %>
-    </div>
-    <footer class="text-muted">
-      <div class="container">
-        <small>
-        <p class="pull-xs-right">
-          <a href="#">Back to top</a>
-        </p>
+      <footer id="footer" class="text-muted">
+        <p class="pull-xs-right"><a href="#">Back to top</a></p>
         <p>
           Outil d'intelligence collective open source par <a href="http://lespoupees.paris" target="_blank">Les Poupées Russes</a> / 
           Code source sur <a href="https://github.com/semiodesign/clli" target="_blank">github.com/semiodesign/clli</a>
         </p>
-        </small>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </body>
 </html>

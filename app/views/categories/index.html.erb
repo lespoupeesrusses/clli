@@ -1,32 +1,29 @@
 <% content_for :jumbo do %>
-  <%= simple_form_for Resource.new do |f| %>
-    <%= f.input :url, as: :string, label: false, placeholder: 'Paste URL here' %>
-    <%= f.button :submit, 'Add resource' %>
-  <% end %>
+  <h1>Categories</h1>
+  <%= render 'resources/input', resource: @resource %>
 <% end %>
-<% @categories.each do |category| %>
-  <div class="card">
-    <div class="card-header">
-      <h2>
-        <%= link_to category.title, category %> 
-        <span class="label label-pill label-default"><%= category.resources.count %></span>
-      </h2> 
-    </div>
-    <div class="card-block">
-      <div class="card-deck-wrapper">
-        <div class="card-deck">
+<div class="card-columns">
+  <% @categories.each do |category| %>
+    <section class="card">
+      <div class="card-block">
+        <h1 class="card-title">
+          <%= link_to category.title, category %> 
+          <span class="label label-pill label-default"><%= category.resources.count %></span>
+        </h1> 
+        <ul class="list-unstyled">
           <% category.resources.recent.each do |resource| %>
-            <div class="card">
-              <%= link_to resource do %>
-                <img class="card-img-top img-fluid" src="<%= resource.image %>">
-                <div class="card-block"><%= resource %></div>
-              <% end %>
-            </div>
+              <li class="card-text"><%= link_to resource, resource %></li>
           <% end %>
-        </div>
+        </ul>
       </div>
+    </section>
+  <% end %>
+  <section class="card new">
+    <div class="card-block">
+      <h1 class="card-title">
+        <%= link_to 'Create new Category', new_category_path %>
+      </h1> 
     </div>
-  </div>
-<% end %>
-<%= link_to 'New Category', new_category_path, class: 'btn btn-primary' %>
+  </section>
+</div>
 
