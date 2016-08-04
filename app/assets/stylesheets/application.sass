@@ -46,7 +46,9 @@ nav
     opacity: 0.6
 
 .card-columns 
-  column-count: 6
+  column-count: 1
+  @include media-breakpoint-up(sm)
+    column-count: 6
 
 .mini-icon
   font-size: 40%

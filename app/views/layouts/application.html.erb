@@ -11,18 +11,26 @@
     <nav class="navbar navbar-static-top">
       <div class="container-fluid">
         <%= link_to 'clli', root_path, class: 'navbar-brand logo' %>
-        <ul class="nav navbar-nav pull-right small">
-          <li class="nav-item"><%= link_to 'collective intelligence system', root_path, class: 'nav-link' %></li>
-          <% if user_signed_in? %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user %></a>
-              <ul class="dropdown-menu" aria-labelledby="Preview">
-                <li class="dropdown-item"><%= link_to 'My resources', current_user %></li>
-                <li class="dropdown-item"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
-              </ul>
-            </li>
-          <% end %>
-        </ul>
+        <button class="navbar-toggler hidden-sm-up pull-right" 
+                type="button" 
+                data-toggle="collapse" 
+                data-target="#collapsingNavbar" 
+                aria-controls="collapsingNavbar" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">&#9776;</button>
+        <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
+          <ul class="nav navbar-nav pull-right small">
+            <% if user_signed_in? %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user %></a>
+                <ul class="dropdown-menu" aria-labelledby="Preview">
+                  <li class="dropdown-item"><%= link_to 'My resources', current_user %></li>
+                  <li class="dropdown-item"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </nav>
     <section class="jumbotron text-xs-center">
