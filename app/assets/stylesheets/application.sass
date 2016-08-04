@@ -5,6 +5,10 @@
 * 
   font-family: 'Roboto', sans-serif
 
+html
+  min-height: 100%
+  min-width: 100%
+
 .jumbotron 
   background: image-url('background.jpg') fixed
   margin-top: -60px
@@ -32,6 +36,10 @@ nav
     line-height: 150%  
   .card-footer
     font-size: 70%
+    ul
+      margin: 0
+      li
+        margin-bottom: 5px
   .card-text
     font-size: 75%
   &.new
@@ -49,3 +57,18 @@ a
 #footer
   margin-top: 100px
   font-size: 70%
+
+
+body.devise-layout
+  background-image: image-url('background.jpg')
+  background-size: cover
+  background-attachment: local
+  background-repeat: no-repeat
+  font-size: 80%
+  .devise-form
+    max-width: 300px
+    background: white
+    padding: 50px
+    margin: 100px auto
+  #footer
+    text-align: center

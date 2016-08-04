@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>clli</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body class="devise-layout">
+    <div class="container-fluid">
+      <% unless notice.nil? %>
+        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <%= notice %>
+        </div>
+      <% end %>
+      <div class="devise-form">
+        <h1><strong>clli</strong></h1>
+        <%= yield %>
+      </div>
+      <footer id="footer" class="text-muted">
+        <p>
+          Outil d'intelligence collective open source par <a href="http://lespoupees.paris" target="_blank">Les Poupées Russes</a> / 
+          Code source sur <a href="https://github.com/semiodesign/clli" target="_blank">github.com/semiodesign/clli</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

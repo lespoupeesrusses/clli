@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :teams
   devise_for :users
+  resources :teams
+  resources :users, only: [:index, :show]
   resources :categories
   resources :resources do 
     post 'categorize/:category_id' => 'resources#categorize', as: :categorize

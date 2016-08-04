@@ -9,10 +9,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  image      :text
+#  user_id    :integer
 #
 
 class Resource < ApplicationRecord
   has_and_belongs_to_many :categories
+  belongs_to :user
 
   before_save :parse_data
 

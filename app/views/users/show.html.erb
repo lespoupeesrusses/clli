@@ -1,0 +1,11 @@
+<% content_for :title, @user %>
+<% content_for :jumbo do %>
+  <h1><%= @user %></h1>
+<% end %>
+<header class="text-xs-center">
+</header>
+<div class="card-columns">
+  <% @user.resources.each do |resource| %>
+    <%= render 'resources/card', resource: resource %>
+  <% end %>
+</div>

@@ -6,9 +6,12 @@
       <p class="card-text"><%= resource.abstract %></p>
     </div>
     <div class="card-footer">
-      <%= link_to fa_icon(:link), resource.url, target: :blank, class: 'pull-right' %>
-      <!--Arnaud Levy, -->
-      <%= fa_icon(:calendar) %> <%= resource.created_at.strftime("%d/%m/%Y") %>
+      <ul class="list-unstyled">
+        <li><%= fa_icon(:tags) %> <%= resource.categories.map { |c| link_to c.title, c }.join(', ').html_safe %></li>
+        <li><%= link_to "#{fa_icon(:link)} #{resource.url.truncate 30}".html_safe, resource.url, target: :blank %></li>
+        <li><%= fa_icon(:calendar) %> <%= resource.created_at.strftime("%d/%m/%Y") %></li>
+        <li><%= link_to "#{fa_icon(:user)} #{resource.user.to_s}".html_safe, resource.user %></li>
+      </ul>
     </div>
   <% end %>
 </section>

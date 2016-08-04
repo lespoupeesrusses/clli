@@ -17,6 +17,7 @@ class ResourcesController < ApplicationController
 
   def create
     @resource = Resource.new resource_params
+    @resource.user = current_user
     respond_to do |format|
       if @resource.save
         format.html { redirect_to edit_resource_path(@resource), notice: 'Resource was successfully created.' }
