@@ -1,5 +1,7 @@
-<h1>New Category</h1>
+<% content_for :title, 'New Category' %>
+
+<% content_for :jumbo do %>
+  <h1>New Category</h1>
+<% end %>
 
 <%= render 'form', category: @category %>
-
-<%= link_to 'Back', categories_path %>

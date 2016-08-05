@@ -28,7 +28,7 @@ nav
   background: none
 
 .card
-  border: none
+  border: none    
   &-footer
     background: #fcfcfc
   .card-title
@@ -44,6 +44,18 @@ nav
     font-size: 75%
   &.new
     opacity: 0.6
+  &.category
+    li 
+      margin-bottom: 10px
+      &:after
+        content: ""
+        height: 1px
+        width: 20px
+        background: #eee
+        display: block
+        margin-top: 10px
+    h1
+      font-size: 26px
 
 .card-columns 
   column-count: 1

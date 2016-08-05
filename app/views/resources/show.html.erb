@@ -2,8 +2,9 @@
 
 <% content_for :jumbo do %>
   <h1>
-    <%= @resource.title %>
+    <%= @resource.title %><br/>
     <%= link_to fa_icon(:pencil), edit_resource_path(@resource), class: 'mini-icon' %>
+    <%= link_to fa_icon(:trash), @resource, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mini-icon' %>
   </h1>
 <% end %>
 

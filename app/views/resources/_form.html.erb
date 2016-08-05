@@ -2,14 +2,13 @@
   <%= f.error_notification %>
   <div class="row">
     <div class="col-md-8">
-      <h1><%= resource %></h1>
       <%= f.input :title %>
       <%= f.input :abstract %>
       <%= f.input :url %>
       <%= f.input :image %>
     </div>
     <div class="col-md-4">
-      <%= link_to 'Show', resource, class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', resource, class: 'btn btn-primary' %>
       <%= f.submit 'Save', class: 'btn btn-primary' %>
       <h4>Categories</h4>
       <ul class="list-inline">

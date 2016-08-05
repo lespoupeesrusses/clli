@@ -1,6 +1,9 @@
-<h1>Editing Category</h1>
+<% content_for :title, @category %>
+
+<% content_for :jumbo do %>
+  <h1>
+    <%= @category.title %>
+  </h1>
+<% end %>
 
 <%= render 'form', category: @category %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>

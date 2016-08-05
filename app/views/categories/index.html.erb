@@ -2,9 +2,9 @@
   <h1>Categories</h1>
   <%= render 'resources/input', resource: @resource %>
 <% end %>
-<div class="card-columns">
+<div class="card-deck">
   <% @categories.each do |category| %>
-    <section class="card">
+    <section class="card category">
       <div class="card-block">
         <h1 class="card-title">
           <%= link_to category.title, category %> 
