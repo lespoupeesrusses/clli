@@ -16,7 +16,7 @@ class Resource < ApplicationRecord
   has_and_belongs_to_many :categories
   belongs_to :user
 
-  before_save :parse_data
+  before_create :parse_data
 
   scope :ordered, -> { order(created_at: :desc) }
   scope :recent, -> { ordered.limit 5 }
