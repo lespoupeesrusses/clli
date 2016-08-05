@@ -18,8 +18,8 @@ class Resource < ApplicationRecord
 
   before_save :parse_data
 
-  scope :recent, -> { ordered.limit 5 }
   scope :ordered, -> { order(created_at: :desc) }
+  scope :recent, -> { ordered.limit 5 }
   
   def to_s
     "#{title}"

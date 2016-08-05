@@ -1,1 +1,9 @@
+<% content_for :title, @resource %>
+
+<% content_for :jumbo do %>
+  <h1>
+    <%= @resource.title %>
+  </h1>
+<% end %>
+
 <%= render 'form', resource: @resource %>
