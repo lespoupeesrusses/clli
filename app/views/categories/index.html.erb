@@ -6,9 +6,9 @@
   <% @categories.each do |category| %>
     <section class="card category">
       <div class="card-block">
+        <span class="label label-pill label-default pull-right"><%= category.resources.count %></span>
         <h1 class="card-title">
           <%= link_to category.title, category %> 
-          <span class="label label-pill label-default"><%= category.resources.count %></span>
         </h1> 
         <ul class="list-unstyled">
           <% category.resources.recent.each do |resource| %>
