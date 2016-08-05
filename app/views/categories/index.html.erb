@@ -2,7 +2,7 @@
   <h1>Categories</h1>
   <%= render 'resources/input', resource: @resource %>
 <% end %>
-<div class="card-deck">
+<div class="card-columns">
   <% @categories.each do |category| %>
     <section class="card category">
       <div class="card-block">
