@@ -17,6 +17,10 @@ body.visual
   .main-card
     h1
       font-size: 160%
+  .card-columns, .card-deck-wrapper
+    @include media-breakpoint-up(sm)
+      column-count: 4
+
 
 .jumbotron 
   background-image: image-url('background.jpg') 
