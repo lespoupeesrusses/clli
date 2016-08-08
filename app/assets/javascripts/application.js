@@ -20,3 +20,15 @@
 //= require_self
 
 toastr.options.positionClass = 'toast-bottom-right';
+
+function addResource(resource) {
+    if ($('body').hasClass('visual')) {
+        resources.pop();
+        resources.unshift(resource);
+        drawResources();
+    } else {
+        var html = '<div><a href="' + resource.url + '"><img src="' + resource.image + '" class="img-fluid" />' + resource.title + '</a></div>';
+        html += '<small>Added by ' + resource.author + '</small><br/>';
+        toastr.info(html);        
+    }
+}

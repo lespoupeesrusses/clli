@@ -86,5 +86,4 @@ Rails.application.configure do
 
   config.web_socket_server_url = "wss://clli.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://clli.herokuapp.com', 'http://clli.herokuapp.com', 'https://clli.lespoupees.paris', 'http://clli.lespoupees.paris']
-  # config.action_cable.url = "ws://clli.herokuapp.com/cable"
 end

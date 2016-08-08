@@ -1,0 +1,38 @@
+<script>
+function drawResources() {
+  $('.main-card').html('');
+  $('.card-columns').html('');
+  for (var i in resources) {
+    var resource = resources[i];
+    html =  '<section class="card resource">';
+    html += ' <a href="' + resource.path + '">';
+    html += '   <img class="card-img-top img-fluid" src="' + resource.image + '">';
+    html += '   <div class="card-block">'
+    html += '     <h1 class="card-title">' + resource.title + '</h1>';
+    html += '     <h1 class="card-text">' + resource.abstract + '</h1>';
+    html += '   </div>'
+    html += ' </a>'
+    html += '</section>'
+    var target = i == 0 ? $('.main-card') : $('.card-columns');
+    target.append(html);
+  }  
+}
+var resources = [];
+<% @resources.each do |resource| %>
+  resources.push({
+     "title": "<%= resource.title %>",
+     "abstract": "<%= resource.abstract %>",
+     "image": "<%= resource.image %>",
+     "path": "<%= resource_path(resource) %>"
+  });
+<% end %>
+$(function() {
+  drawResources();
+});
+</script>
+<div class="row">
+  <div class="col-md-4 main-card">
+  </div>
+  <div class="col-md-8 card-columns">
+  </div>
+</div>

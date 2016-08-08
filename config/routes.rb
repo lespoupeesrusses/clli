@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     post 'categorize/:category_id' => 'resources#categorize', as: :categorize
     post 'uncategorize/:category_id' => 'resources#uncategorize', as: :uncategorize
   end
+  get 'visual' => 'visual#index'
   root 'categories#index'
 end
