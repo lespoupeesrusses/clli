@@ -10,6 +10,7 @@ gem 'simple_form'
 gem 'nokogiri'
 gem 'metainspector'
 gem 'devise'
+gem 'redis'
 
 # Front
 gem 'sass-rails', '~> 5.0'
