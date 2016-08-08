@@ -20,6 +20,7 @@ class ResourcesController < ApplicationController
     @resource.user = current_user
     respond_to do |format|
       if @resource.save
+        ActionCable.server.broadcast 'resources', resource: { title: @resource.title, url: resource_path(@resource), image: @resource.image, author: @resource.user.email }
         format.html { redirect_to edit_resource_path(@resource), notice: 'Resource was successfully created.' }
         format.json { render :show, status: :created, location: @resource }
       else
