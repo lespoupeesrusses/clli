@@ -84,6 +84,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.web_socket_server_url = "wss://clli.herokuapp.com/cable" 
-  config.action_cable.url = "wss://clli.herokuapp.com/cable"
+  config.web_socket_server_url = "ws://clli.herokuapp.com/cable" 
+  config.action_cable.url = "ws://clli.herokuapp.com/cable"
 end
