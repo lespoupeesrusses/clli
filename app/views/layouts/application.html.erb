@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><% if content_for?(:title) %><%= yield(:title) %> | <% end %>clli</title>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'icons/favicon.ico' %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +12,7 @@
   <body>
     <nav class="navbar navbar-static-top">
       <div class="container-fluid">
-        <%= link_to 'clli', root_path, class: 'navbar-brand logo' %>
+        <%= link_to image_tag('logo.svg', width: 80), root_path, class: 'navbar-brand logo' %>
         <button class="navbar-toggler hidden-sm-up pull-right" 
                 type="button" 
                 data-toggle="collapse" 
