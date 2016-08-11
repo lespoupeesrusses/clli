@@ -1,0 +1,20 @@
+<script>
+var usersOnline = [<%= raw User.online.map { |u| "'#{u.email}'" }.join(',') %>];
+function updateUsers(emails) {
+    usersOnline = emails;
+    drawUsers();
+}
+function drawUsers() {
+  $('#usersOnline').html('');
+  for (var i in usersOnline) {
+    var email = usersOnline[i];
+    var initials = email.substring(0, 2);
+    $('#usersOnline').append('<div>' + initials + '</div>');
+  }
+}
+$(function() {
+  drawUsers();
+});
+</script>
+<div id="usersOnline">
+</div>

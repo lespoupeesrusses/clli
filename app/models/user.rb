@@ -25,6 +25,12 @@ class User < ApplicationRecord
 
   has_many :resources
 
+  scope :online, -> { where('updated_at > ?', 10.minutes.ago )}
+
+  def self.online_emails
+    online.collect(&:email)
+  end
+
   def to_s
     "#{email}"
   end
