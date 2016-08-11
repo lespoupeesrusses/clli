@@ -21,7 +21,7 @@ var resources = [];
 <% @resources.each do |resource| %>
   resources.push({
      "title": "<%= resource.title %>",
-     "abstract": "<%= resource.abstract %>",
+     "abstract": "<%= simple_format resource.abstract %>",
      "image": "<%= resource.image %>",
      "path": "<%= resource_path(resource) %>"
   });
