@@ -27,7 +27,7 @@
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user %></a>
                 <ul class="dropdown-menu" aria-labelledby="Preview">
                   <li class="dropdown-item"><%= link_to 'My resources', current_user %></li>
-                  <li class="dropdown-item"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+                  <li class="dropdown-item"><%= link_to('Logout', destroy_user_session_path, method: :delete, 'data-behavior' => 'appear_away') %></li>
                 </ul>
               </li>
             <% end %>

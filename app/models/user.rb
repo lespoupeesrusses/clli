@@ -31,6 +31,18 @@ class User < ApplicationRecord
     online.collect(&:email)
   end
 
+  def appear(args = {})
+
+  end
+
+  def disappear
+
+  end
+
+  def away
+
+  end
+
   def to_s
     "#{email}"
   end
