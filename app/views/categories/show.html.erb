@@ -10,7 +10,7 @@
 <header class="text-xs-center">
 </header>
 <div class="card-columns">
-  <% @category.resources.each do |resource| %>
+  <% @category.resources.ordered.each do |resource| %>
     <%= render 'resources/card', resource: resource %>
   <% end %>
 </div>
